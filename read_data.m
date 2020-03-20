@@ -1,4 +1,4 @@
-%% prueba de lectura de datos 
+%% Lectura de datos descargados de IRIS
 
 %%%%%% Seismic event on Argentina on March 5th 2020  Mww5.5 %%%%%%
 
