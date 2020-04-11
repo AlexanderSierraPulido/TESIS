@@ -1,0 +1,49 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+ 
+
+Las redes neuronales artificiales son implementaciones de algoritmos capaces de entrenarse para reconocer y clasificar diferentes características de una imagen o señal. Este método surge a partir del estudio de las redes neuronales en el cerebro humano y como están conectadas entre sí, de ahí su nombre. Las redes neuronales en el cerebro son una interconexión gigante de neuronas, donde el impulso resultante de cada una puede ser la señal que reciben miles más.\\
+
+El uso de estos algoritmos abarca un amplio rango de disciplinas en la actualidad y es un área con gran crecimiento en este momento. Por ejemplo, las redes neuronales pueden usarse para analizar y clasificar elementos de imágenes o señales, bien sea para diferenciar elementos como carros en una imagen o para reconocer figuras, entre otras cosas. Para ser más precisos, estos algoritmos en el procesamiento de datos sísmicos han incrementado el uso de herramientas automatizadas que analicen atributos sísmicos  (Poulton). Por esto, en el área de la sismología se han venido desarrollando algoritmos cada vez más poderosos para la detección de llegadas de ondas. Aún es trabajo de expertos que basan sus estimaciones en la experiencia el de detectar la llegada de diferentes ondas sísmicas y por ende puede conllevar a discrepancias e inconsistencias por ser subjetiva esta labor. Por otra parte, la cantidad de datos recolectados por los sismógrafos ha ido creciendo con los años y se requiere de más desarrollo computacional en esta área ya que esta es la base de muchos estudios sismológicos.\\  
+
+De esta manera se introduce una rama comprendida dentro de las redes neuronales, la cual se basa en la operación matemática convolución. Este método, llamado redes neuronales de convolución se usa mucho en la detección de llegadas de ondas sísmicas, y consta dos partes principales las cuales son: el aprendizaje (la más significativa) y la clasificación (vanderBaan). Dentro del aprendizaje se dan tres procesos importantes: la convolución, la activación, y la reducción de la dimensionalidad (“pooling”) (Mousavi, Zhu, Sheng, & Beroza, 2019). Estos procesos tienen lugar dentro de un conjunto de capas que están compuestas de neuronas. En cada capa se da lugar a la convolución, que a su vez da lugar a la activación de las neuronas, y finalmente se reduce la dimensionalidad del resultado. Este es un proceso de aprendizaje supervisado donde los filtros usados para la convolución son optimizados con el fin de que el algoritmo aprenda cuales características de los datos son más relevantes para la clasificación (Perol, Gharbi, & Denolle, 2017). Finalmente, la parte de la clasificación está compuesta por un grupo de capas donde cada neurona de cada capa está conectada con cada neurona de las capas vecinas (capas completamente conectadas) y el proceso de clasificación se da mediante modelos probabilísticos (Ross, Meier, & Hauksson, 2018). \\ 
+
+El propósito del proyecto que se plasma en este documento es el de implementar un algoritmo en Python con el uso de TensorFlow, basado en el principio de las redes neuronales de convolución para detectar las llegadas de ondas sísmicas P y S en un sismograma de tres componentes. En primer lugar, se obtendrán datos tanto sintéticos como reales para tener una gran variedad de características en las señales. Luego se explicará el proceso de entrenamiento de la red, con lo cual usaremos sismogramas reales (obtenidos de la red de IRIS) con tiempos de llegada de ondas ya estimados. En tercer lugar se mostrara la arquitectura de la red neuronal de convolución que se eligió para este proyecto, basados en trabajos científicos consultados en la literatura. Finalmente, se evaluará la efectividad del método bajo presencia de ruido, ya que puede afectar la detección de las ondas sísmicas. Para esto se usarán tres métodos para evaluar el algoritmo, los cuales son precisión, sensibilidad y F1. \\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

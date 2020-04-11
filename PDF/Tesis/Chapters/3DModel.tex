@@ -1,0 +1,145 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+
+\section{Method}
+
+In this chapter, the development of 3D modeling of the Enceladus icy crust will be studied. As already mentioned, this procedure was performed through free software CitcomS. Initially, it was established to divide the spherical shell into several elements, since the method to be implemented by the software was to be precisely finite elements. Below is a 3D figure of how the surface of Enceladus would fragment.
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Tesis/images/Images/esphere.JPG}
+    \label{fig:my_label}
+    \centering
+    \caption{3D scheme of the fragmentation of the entire crust in finite elements.}
+\end{figure}
+
+
+
+\subsection{Running simulations in the cluster }
+
+The idea is to assign to each intersection of the grid shown above a corresponding node or point, for which the viscosity, temperature, and velocity are calculated. To solve partial differential equations in this multidimensional grid, it was necessary to resort to the resources of the cluster that belongs to the Universidad de los Andes. This was done to reduce the times during which the simulation was run. If a single processor had been used, the elapsed time would have reached three days for each attempt. Being a 6-month investigation, it was necessary to optimize the simulation time. The distribution of nodes and finite elements in the southern hemisphere of the study satellite is shown below.
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Tesis/images/Images/may.jpg}
+    \label{fig:my_label}
+    \centering
+    \caption{Nodes and mesh distribution in Enceladus South Pole.}
+\end{figure}
+
+\subsection{MPI computing}
+
+Parallel computing consists of executing several simultaneous tasks in different processors. In this case, the sphere was divided into 12 equal pieces, and each piece was assigned a single processor. During the executing of the task from the cluster console, the numerical calculation for each point in the mesh will begin simultaneously. In this way, there will be a connection between the data, which will allow the triangulation of the coordinates, and later, when plotting, it will enable showing the information of all the characteristics at the same time. i.e., For the corresponding finite element, the velocity, viscosity, and temperature variables are plotted. It is essential to highlight that 12 processors were assumed by the structure that follows the cluster of the Universidad de los Andes, which follows behavior in powers of 4. For that reason, the input file was told to use 16 processors, but we only did the calculations in 12. The following figure shows the corresponding grid assigned to each terminal
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Tesis/images/Images/proce.JPG}
+    \label{fig:my_label}
+    \centering
+    \caption{Multidimensional mesh for uni-processor.}
+\end{figure}
+
+\vspace{5mm}
+
+
+
+\subsection{HDF5 files}
+
+CitcomS allows output files with extension hdf5, ASCII, or VTK. The last two require additional processing because, for each time-step, they generate a txt file, and this is repeated for each processor. This situation can be quite challenging to interpret since, for this case, there are 12 processors and 1000 time-steps that generated  5700 .txt files approximately, which took a large amount of memory and required to be combined for each time-step separately. This procedure was not efficient, taking into account that there were parameters that did not have the same time-step size, so finally, we chose to use the .hdf5 files.
+
+
+The Hierarchical Data Format (HDF) is a format extension developed at the National Center for Supercomputing Applications (NCSA). It is designed for storing, retrieving, analyzing, visualizing, and converting scientific data, especially multidimensional arrays [15][16]. As the name implies, it uses a hierarchical structure composed of groups that contain inner-subgroups of datasets. In this way, each output file that was obtained came in the following structure: 
+
+\begin{itemize}
+    \item Enceladus.0.h5 
+\end{itemize}
+
+That contains in its interior the information related to all 12 processors in time-step 0. 
+
+\vspace{5mm}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Tesis/images/Images/hdf5.jpg}
+    \label{fig:my_label}
+    \centering
+    \caption{\centering Hierarchical Data format structure, taken from: National Ecological Observatory Network (NEON).}
+\end{figure}
+
+
+
+\newpage
+\section{Results}
+
+Several simulation attempts were made to maintain a reasonable number in the calculation of flux energy on the surface of the south pole of Enceladus. Therefore, it was simulated for three different times (0 My, 50 My, 100 My), to find some correlation with the results obtained in the 2D model exposed in the previous chapter.
+
+\subsection{0 Million years}
+
+For this simulation, to adopt small tide dissipation does not allow the existence of an ocean below the surface. For this case, we have an isothermal surface (200K) trying to simulate Enceladus shortly after its formation. Authors as [4]  attribute the observed heat as a result of a meteorite impact that led Enceladus to change its orbit and its eccentricity, this simulation would be throwing the convective appearance of Enceladus at a time before the eccentricity change. Then, the crust is estimated with a uniform viscosity contrast in both hemispheres, so it is evident that no detectable convection patterns are observed neither in the mesh nor in the respective poles.
+
+\vspace{10mm}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Tesis/images/Images/3k.jpg}
+    \label{fig:my_label}
+    \centering
+    \caption{Simulation of heat convection in an ice layer at t = 0My.}
+\end{figure}
+
+
+
+\subsection{50 Million years}
+In this situation, Enceladus was simulated with an elapsed time of 50 My, following the assignment of parameters as in [1]. A specific array was used to separate the surface layer of the northern hemisphere in the respective spherical coordinates and terms of the corresponding nodes and processors. These, to simulate the convection under a non-convective layer, which would explain the tectonic inactivity in the northern hemisphere. However, the .hdf5 extension data was plotted with the information contained in velocity and temperature. \\
+When entering the parameters, many items were related to convective problems in the Earth's mantle, because the documentation of CitcomS did not have clear information about the arguments that they received. For this reason, the appearance of two rising plumes in both poles is evidenced. In agreement with [1], these plumes appear when the viscosity contrast is the same for the north and south zone, and the Rayleigh number has a value of $ 6.5 x10^{7}$. However, the convection patterns that are observed are quite irregular, but they differentiate the latitudes of the south pole. This model is more accurate than the previous one, even though the calculation of energy flow yielded a figure of several orders of magnitude higher than the value observed by the Cassini mission (~ 10GW) [7].
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Tesis/images/Images/2k.jpg}
+    \label{fig:my_label}
+    \centering
+    \caption{Simulation of heat convection in an ice layer at t = 50My.}
+\end{figure}
+
+\subsection{100 My}
+
+Finally, for this simulation was taken into account that the viscosity is temperature-dependent; this relationship is inversely proportional so that a high temperature will lead to low viscosity and vice-versa. In this way, a viscosity of $ 1x10^{3}$ was set at the south pole and a viscosity of $ 1x10^{5}$ for the north pole. The Rayleigh number is maintained as in Chapter 4, following [1], it is provided that the zone that will cover the low viscosity will be below 60 S latitude. 
+To understand the data sets contained in each file, it was possible to see graphically the structure in which each one was and then graph separately for each processor. These were achieved through the executable package of HDFView, which is available to the scientific community working with Big Data. Also, this package contains the HDFExplorer tool that allows you to visualize and graph. In this case, the appearance of a single feather in the southern hemisphere is observed, as shown in Figure 6.7:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Tesis/images/Images/1k.jpg}
+    \label{fig:my_label}
+    \centering
+    \caption{Simulation of heat convection in an ice layer at t = 100My. The plot shows the temperature structure for a 3D model with a single plume at the south pole, some irregularities are shown at the Equator as a result of the Earth mantle's convection input parameters imposed by default by CitcomS.}
+\end{figure}
+
+
+
+
+
+
+
+\subsubsection{Energy results}
+
+All these simulations were calculated in approximately 5 hours each. It was not possible to graph the results with the viewers recommended by the CitcomS development team. These viewers were OpenDX and Mayavi2, which could read .h5 files with the help of some packages offered by a host that was not part of the developers. During the download of the packages from the Unix console, the remote connection to that server could not be generated. For this reason, it was not possible to download and display the data under that 3D scientific data visualization environment.
+
+
+
+In this case, the value obtained at the end of the simulation for the surface heat flow was 9.6 GW. This value is much higher than observed by Cassini (10 GW approximately) [2]. The final numerical result of the last simulation is shown below:
+
+\vspace{1cm}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Tesis/images/Images/consola.JPG}
+    \label{fig:my_label}
+    \centering
+    \caption{Numeric results from Cluster console.}
+\end{figure}
+
+
+\end{document} 

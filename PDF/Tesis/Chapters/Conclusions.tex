@@ -1,0 +1,37 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%In section \ref{DMRG:sec:GeneralMPOUSED} 
+Simulations in 2D and 3D allowed concluding: In the 2D model, there is evidence of great heat storage during the first 50 million years with a subsequent release of energy in the form of plumes that reach the nearby surface. These plumes show the convection patterns that were expected to be found, being consistent with the ``Tiger Stripes" heat pattern observed in 2005 by Cassini. Even so, the 2D model was only an approximation to an ideal layer of ice. Many relevant factors were omitted, such as the presence of chemical elements, the topography in the south pole of Enceladus (which manages to rise several meters in altitude) [2] as a consequence that it can affect the angular momentum that Enceladus has and its effect on the tidal forces. On the other hand, the results of the renewal of the surface by the particles that fall back due to gravity were not taken into account, and that is possibly the reason why there is little or no evidence of the number of craters in the south pole. For two dimensions, the mechanical properties of the ice were also omitted and the limits that can be had under those conditions, i.e. Fracture criteria, ice relaxation, deformation, among others.\\
+
+On the other hand, the 3D simulations were more complete, since they included the attributes that the previous model did not have. CitcomS calculated the velocity, viscosity, and temperature for each point of the sphere as assigned in the grid to each processor. Therefore, it was necessary to use the parallelization, to be able to differentiate the coordinates of the pole in which the viscosity value was lower due to the temperature dependence. At 50 My, this model has a limitation because it shows the presence of two plumes in both poles, and it is precisely not what is observed, or there is evidence that it has happened in Enceladus. 
+This can be explained, in the course of the simulation, the viscosity contrast between the north and south poles was varied, and at 50My, there was an intersection in this variation and both polar areas reached to have the same viscosity contrast, under the same conditions that is why two plumes appear the same but in opposite directions.\\
+
+At 100 My, the presence of a plume in the south pole is observed, with a surface energy flow of 9.6 GW, which suggests in the numerical results that the base of the ice sheet must have 23.4 GW of heat flux. This, combined with the irregularity that was obtained in the spherical symmetry, could be explained as the result of combining default parameters in the input file. Since CitcomS is written in a configuration that simulates the Earth's mantle, the instructions in the manual are guided to those parameters without the user's permission. In this way, irregularities are observed in the 3D plot towards the equatorial zones.
+
+
+It is important to emphasize that both models converge at an initial point without heat flow at 0 My and a subsequent release of heat at 100My, which would be the current time at Enceladus. This allowed us to study the temporal evolution of plumes and establish that initially, Enceladus stored a large amount of energy, and convection began its development halfway through time. In this way, a type of episodic thermal convection can be established with maximum heat peaks, as suggested in [3].
+
+
+
+It is possible to analyze that by varying the Rayleigh number, the model can change drastically. Taking into account that, for values> $ 1x10 ^ {3} $ convection heat transfer occurs. If that value were lowered, it could be argued that mechanically the south pole could become weaker than the northern polar areas [1]. The parameters that were entered as input file can be changed to obtain more accurate results, such as latitudes that reach the south pole with a different temperature because according to [3] the displacement and deformation of the ice crust reach 0.5 m / year, which in geological scales can change the latitudes of the weak south pole.\\\
+
+
+Finally, the same conclusion that all the authors investigating Enceladus have is highlighted: It is not possible to know how the heat was generated in Enceladus, taking into account that neither the tidal forces, nor the radiogenic heat, nor the shear friction reaches cause such high energy values as those observed by Cassini in 2005. Also, this observational value is changing in the way that a more excellent range of wavelengths is covered in remote sensor observations. Therefore, the origin of this phenomenon is still a matter of investigation for future work.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document} 

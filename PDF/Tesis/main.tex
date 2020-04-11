@@ -1,0 +1,171 @@
+\documentclass[12pt]{report}
+%Input
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{subfiles}
+\usepackage{amssymb}
+\usepackage{mathtools}
+%Structure
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{subcaption}
+\geometry{
+ letterpaper,
+ left=20mm, right=20mm,
+ top=20mm,bottom=21mm
+ }
+%Figures
+\usepackage{graphicx}
+%Options
+\usepackage{caption}
+\usepackage{titling}
+\usepackage{afterpage}
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+%\newenvironment{dedication}
+%{
+%    \cleardoublepage
+%    \thispagestyle{empty}
+%    \vspace*{\stretch{2}}
+%    \hfill \begin{center}\begin{minipage}[t]{0.8\textwidth}
+%    }
+%    {
+%    \end{minipage}\end{center}\vspace*{\stretch{3}}\clearpage
+%}
+\renewcommand{\contentsname}{Tabla de Contenido}
+\begin{document}
+\subfile{Chapters/Portada.tex}
+\clearpage
+\thispagestyle{plain}
+\vspace{.35\textheight}
+%\begin{dedication}
+%\begin{center}
+%\large
+% \emph{To my grandma Sara and her promise to live long enough to see me working at NASA} 
+%\end{center}
+%\end{dedication}
+%\pagebreak
+%\blankpage
+
+%\chapter*{Acknowledgements}
+
+%First and foremost, I want to thank my family, my mother Nancy and my sister Angelica, for supporting me in every moment of my life and giving me the strength to keep going despite the adversities. To my grandmother Sara, for keeping me in her few memories. All of you are part of who I am and are the reason why I strive every day to get at NASA. \\
+
+%Second, I should like to thank my supervisor Dr. Jillian Pearse, for supporting me in the development of this degree project and for believing in my skills and passion in planetary sciences. Also, for the knowledge that I got as her student and teaching assistant. \\
+
+%On the other hand, I want to thank Dr. Alejandro Garcia for his unconditional support during these years of research work. Thank you to believe in me and to open the doors to astronomy and guide me to the study of the solar system. Also, I must thank Dr. Juan Pablo Mallarino for helping me in the handling of the cluster and parallel computing, his collaboration was crucial in this degree work. \\
+
+ %I must thank my colleagues and friends, especially to Diana Lozano for join me in the most difficult moments during the course of my two careers. Thanks to David Paipa, for his unconditional presence in this last semester, to Javier Acevedo for helping me to solve the innumerable problems that were presented to me at a technical level and for reminding me that there is always a way out and Juan Pablo Galán for helping me with the corrections. Finally, I want to thank Fabio Pablo Méndez, the best friend that life could give me.
+
+
+
+
+
+
+
+
+
+
+%\thispagestyle{empty}
+%\clearpage
+%\pagebreak
+%\newpage
+%\blankpage
+
+
+\hspace{0pt}
+\begin{center}
+    \textbf{{\large Implementación de un algoritmo de redes neuronales de convolución para la detección de ondas sísmicas}}\\
+    \vspace{4mm}
+     Alexander Sierra Pulido\\
+     \vspace{2mm}
+    Universidad de los Andes
+\begin{minipage}[h]{\textwidth}
+\vspace{6mm}
+    \begin{abstract}
+      ESPACIO PARA EL RESUMEN 
+      
+    \end{abstract}
+\end{minipage}
+
+\end{center}
+
+
+
+
+\thispagestyle{empty}
+\clearpage
+\pagebreak
+\newpage
+
+
+
+\hspace{0pt}
+\begin{center}
+    \textbf{{\large  Implementación de un algoritmo de redes neuronales de convolución para la detección de ondas sísmicas}}\\
+    \vspace{4mm}
+     Alexander Sierra Pulido\\
+     \vspace{2mm}
+    Universidad de los Andes
+\begin{minipage}[h]{\textwidth}
+\vspace{6mm}
+    \begin{abstract}
+        
+        ESPACIO PARA EL ABSTRACT
+    
+
+    \end{abstract}
+\end{minipage}
+
+\end{center}
+
+
+
+\vfill
+\hspace{0pt}
+\pagebreak
+\clearpage
+\tableofcontents
+\clearpage
+\chapter{Objetivos}
+\subfile{Chapters/Objetivos}
+\chapter{Introducción}
+\subfile{Chapters/Introduccion}
+\chapter{Metodología}
+\subfile{Chapters/Metodologia}
+\chapter{Estado del arte}
+\subfile{Chapters/Arte}
+\chapter{Datos}
+\subfile{Chapters/Datos}
+%\chapter{3D-Convection Model}
+%\subfile{Chapters/3DModel}
+%\chapter{Conclusions}
+%\subfile{Chapters/Conclusions}
+\clearpage
+
+
+\begin{thebibliography}{}
+
+
+
+\bibitem{} 
+
+
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
