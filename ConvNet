@@ -1,0 +1,17 @@
+import numpy as np
+import matplotlib.pylab as plt
+import torch
+import scipy.io
+
+#Read seismic data from mat files
+LCO_E = scipy.io.loadmat("Data/ARG_LCO_E.mat")
+LCO_N = scipy.io.loadmat("Data/ARG_LCO_N.mat")
+LCO_Z = scipy.io.loadmat("Data/ARG_LCO_Z.mat")
+
+LCO_E = torch.tensor(LCO_E['dataLCO_E'])
+LCO_N = torch.tensor(LCO_N['dataLCO_N'])
+LCO_Z = torch.tensor(LCO_Z['dataLCO_Z'])
+LCO = torch.stack((LCO_E,LCO_N,LCO_Z))
+
+
+print (LCO)
